@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Book Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #c18484;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .heading {
+      display: flex;
+      align-items: center;
+    }
+
+    h1 {
+      padding-left: 10%;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .book-box {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      position: relative; /* Add this to position the divider line */
+    }
+
+    .book-cover {
+      max-width: 100%;
+      height: 150px; /* Set a fixed height for book covers */
+      object-fit: cover; /* Ensure the image covers the specified height */
+    }
+
+    .divider-line {
+      position: absolute;
+      top: 0;
+      right: -1px; /* Adjust this value to control the position of the line */
+      height: 100%;
+      width: 1px;
+      background-color: #ddd;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+  <header>
+    <div class="heading">
+      <img src="./asset/logo.png" alt="logo" style="height: 50px; ">
+      <h1>Online Book Store</h1>
+    </div>
+  </header>
+
+
+    <section>
+      <h2>CSE Books</h2>
+      <div class="book-grid">
+        <div class="book-box">
+          <img class="book-cover" src="./asset/book1.jpg" alt="Book Cover 1">
+          <div class="divider-line"></div>
+          <p>Handbook Computer Science & IT </p>
+          <p>Author: Surabhi Mitra </p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="book-box">
+          <img class="book-cover" src="./asset/book2.jpg" alt="Book Cover 2">
+          <div class="divider-line"></div>
+          <p>MASTERING HTML, CSS & Java Script</p>
+          <p>Author: Laura Lemay</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <!-- Add more book boxes as needed -->
+
+      </div>
+    </section>
+
+    <section>
+      <h2>ECE Books</h2>
+      <div class="book-grid">
+        <div class="book-box">
+          <img class="book-cover" src="./asset/ece1.jpg" alt="Book Cover 3">
+          <div class="divider-line"></div>
+          <p>GATE 2024 : Electronics and Communication Engineering</p>
+          <p>Author: GKP</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="book-box">
+          <img class="book-cover" src="./asset/ece2.jpg" alt="Book Cover 4">
+          <div class="divider-line"></div>
+          <p>Handbook Electronics & Communication Engineering for GATE,IES,PSU and Other Competitive Exams</p>
+          <p>Author: Er. Ankit Goel</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <!-- Add more book boxes as needed -->
+
+      </div>
+    </section>
+  
+
+  <section>
+    <h2>Cart</h2>
+    <p>Your shopping cart is currently empty. <a href="cart.html">View Cart</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Online Book Store. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>

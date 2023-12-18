@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Book Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #c18484;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .heading {
+      display: flex;
+      align-items: center;
+    }
+
+    h1 {
+      padding-left: 10%;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .book-box {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      position: relative;
+    }
+
+    .book-cover {
+      max-width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .divider-line {
+      position: absolute;
+      top: 0;
+      right: -1px;
+      height: 100%;
+      width: 1px;
+      background-color: #ddd;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="heading">
+      <img src="./asset/logo.png" alt="logo" style="height: 50px; ">
+      <h1>Online Book Store</h1>
+    </div>
+  </header>
+
+  <section id="cse-books">
+    <h2>CSE Books</h2>
+    <div class="book-grid">
+      <div class="book-box" onclick="addToCart('Handbook Computer Science & IT', 'Surabhi Mitra', 35.50)">
+        <img class="book-cover" src="./asset/book1.jpg" alt="Book Cover 1">
+        <div class="divider-line"></div>
+        <p>Handbook Computer Science & IT</p>
+        <p>Author: Surabhi Mitra</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="book-box" onclick="addToCart('MASTERING HTML, CSS & Java Script', 'Laura Lemay', 40.50)">
+        <img class="book-cover" src="./asset/book2.jpg" alt="Book Cover 2">
+        <div class="divider-line"></div>
+        <p>MASTERING HTML, CSS & Java Script</p>
+        <p>Author: Laura Lemay</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <!-- Add more book boxes as needed -->
+
+    </div>
+  </section>
+
+  <section id="cart">
+    <h2>Cart</h2>
+    <div id="cart-items">
+      <!-- Cart items will be displayed here dynamically -->
+    </div>
+    <p class="total-amount" id="total-amount">Total: $0.00</p>
+    <button onclick="checkout()">Checkout</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Online Book Store. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let cartItems = [];
+
+    function addToCart(title, author, price) {
+      const item = { title, author, price };
+      cartItems.push(item);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartContainer = document.getElementById("cart-items");
+      const totalAmountElement = document.getElementById("total-amount");
+
+      cartContainer.innerHTML = "";
+
+      cartItems.forEach(item => {
+        const cartItem = document.createElement("div");
+        cartItem.innerHTML = `
+          <p>${item.title} by ${item.author} - $${item.price.toFixed(2)}</p>
+        `;
+        cartContainer.appendChild(cartItem);
+      });
+
+      const totalAmount = cartItems.reduce((total, item) => total + item.price, 0);
+      totalAmountElement.textContent = `Total: $${totalAmount.toFixed(2)}`;
+    }
+
+    function checkout() {
+      // Implement your checkout logic here
+      alert("Checkout functionality is not implemented in this example.");
+    }
+  </script>
+
+</body>
+
+</html>
